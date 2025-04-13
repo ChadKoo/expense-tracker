@@ -31,14 +31,13 @@ function App() {
     <div  >
       <h1 >Expense Tracker</h1>
       <div >
-        <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow col-span-1">
-          <h2 className="text-xl font-semibold mb-4">Add Expense</h2>
+        <form onSubmit={handleSubmit} >
+          <h2 >Add Expense</h2>
           <input
             name="title"
             placeholder="Enter expense title"
             value={form.title}
             onChange={handleChange}
-            className="w-full p-2 mb-2 border rounded"
             required
           />
           <input
@@ -46,22 +45,19 @@ function App() {
             placeholder="Enter expense description"
             value={form.description}
             onChange={handleChange}
-            className="w-full p-2 mb-2 border rounded"
-          />
+            />
           <input
             name="category"
             placeholder="Enter category"
             value={form.category}
             onChange={handleChange}
-            className="w-full p-2 mb-2 border rounded"
-          />
+            />
           <input
             name="amount"
             type="number"
             placeholder="Enter amount"
             value={form.amount}
             onChange={handleChange}
-            className="w-full p-2 mb-2 border rounded"
             required
           />
           <input
@@ -69,37 +65,35 @@ function App() {
             type="date"
             value={form.date}
             onChange={handleChange}
-            className="w-full p-2 mb-2 border rounded"
             required
           />
-          <button type="submit" className="bg-black text-white w-full py-2 rounded hover:bg-gray-800">Submit</button>
+          <button type="submit" >Submit</button>
         </form>
 
-        <div className="col-span-1 md:col-span-3">
+        <div >
           <input
             placeholder="Search expenses..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full p-2 mb-4 border rounded"
-          />
-          <table className="w-full table-auto border-collapse">
+            />
+          <table >
             <thead>
-              <tr className="bg-black text-white">
-                <th className="p-2 text-left">Expense</th>
-                <th className="p-2 text-left">Description</th>
-                <th className="p-2 text-left">Category</th>
-                <th className="p-2 text-left">Amount</th>
-                <th className="p-2 text-left">Date</th>
+              <tr>
+                <th >Expense</th>
+                <th >Description</th>
+                <th >Category</th>
+                <th >Amount</th>
+                <th >Date</th>
               </tr>
             </thead>
             <tbody>
               {filteredExpenses.map((exp, index) => (
-                <tr key={index} className="border-b">
-                  <td className="p-2">{exp.title}</td>
-                  <td className="p-2">{exp.description}</td>
-                  <td className="p-2">{exp.category}</td>
-                  <td className="p-2">{exp.amount}</td>
-                  <td className="p-2">{exp.date}</td>
+                <tr key={index} >
+                  <td >{exp.title}</td>
+                  <td >{exp.description}</td>
+                  <td >{exp.category}</td>
+                  <td >{exp.amount}</td>
+                  <td >{exp.date}</td>
                 </tr>
               ))}
             </tbody>
