@@ -1,34 +1,59 @@
-import { useState } from 'react'
+import react,{ useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [form, setForm] = useState({ title: '', description: '', category: '', amount: '', date: '' })
+  const [search, setSearch] = useState('');
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <table>
+  <tr>
+    <th>Expenses</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+  <tr>
+    <td>Ugali Mayai Mix</td>
+    <td>Wednesday\'s Lunch</td>
+    <td>food</td>
+    <td>100</td>
+    <td>2025-04-08</td>
+  </tr>
+  <tr>
+    <td>NYC tokens</td>
+    <td>power tokens</td>
+    <td>utilities</td>
+    <td>2000</td>
+    <td>2025-04-05</td>
+  </tr>
+  <tr>
+    <td>Buy shoes </td>
+    <td>Add to my shoe collection</td>
+    <td>personal</td>
+    <td>5000</td>
+    <td>2025-04-09</td>
+  </tr>
+  <tr>
+    <td>Buy book</td>
+    <td>Add to my book collection</td>
+    <td>growth</td>
+    <td>10000</td>
+    <td>2025-04-07</td>
+  </tr>
+</table>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      </>
   )
 }
 
