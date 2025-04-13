@@ -1,109 +1,103 @@
-import react,{ useState } from 'react'
-import './App.css'
-
-
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
-  const [form, setForm] = useState({ title: 'Ugali MayaiMix', description: 'Wednesday Lunch', category: 'Food', amount: '100', date: '2025-04-05' })
-  const [expenses, setExpenses] = useState([]) //displays new expense
+  const [form, setForm] = useState({
+    title: '',
+    description: '',
+    category: '',
+    amount: '',
+    date: '',
+  });
+  const [expenses, setExpenses] = useState([]);
   const [search, setSearch] = useState('');
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });//updates field changed by user
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-
-  const filteredExpenses = expenses.filter((exp) =>
-    exp.title.toLowerCase().includes(search.toLowerCase()) ||
-    exp.description.toLowerCase().includes(search.toLowerCase())//checks if title or description match user input
-  );
-
-  
-
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setExpenses([...expenses, { ...form, amount: Number(form.amount) }]);//Adds new expense list, copies previous form, converts string to number
-    setForm({ title: '', description: '', category: '', amount: '', date: '' });//clears the form
+    e.preventDefault();    
+    setExpenses([...expenses, { ...form, amount: Number(form.amount) }]);
+    setForm({ title: '', description: '', category: '', amount: '', date: '' });
   };
 
 
-  return (
-    <div  >
-      <h1 >Expense Tracker</h1>
-      <div >
-        <form onSubmit={handleSubmit} >
-          <h2 >Add Expense</h2>
-          <input
-            name="title"
-            placeholder="Enter expense title"
-            value={form.title}
-            onChange={handleChange}
-            required
-          />
-          <input
-            name="description"
-            placeholder="Enter expense description"
-            value={form.description}
-            onChange={handleChange}
-            />
-          <input
-            name="category"
-            placeholder="Enter category"
-            value={form.category}
-            onChange={handleChange}
-            />
-          <input
-            name="amount"
-            type="number"
-            placeholder="Enter amount"
-            value={form.amount}
-            onChange={handleChange}
-            required
-          />
-          <input
-            name="date"
-            type="date"
-            value={form.date}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" >Submit</button>
-        </form>
+  let filteredExpenses;
 
-        <div >
-          <input
-            placeholder="Search expenses..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            />
-          <table >
-            <thead>
-              <tr>
-                <th >Expense</th>
-                <th >Description</th>
-                <th >Category</th>
-                <th >Amount</th>
-                <th >Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredExpenses.map((exp, index) => (
-                <tr key={index} >
-                  <td >{exp.title}</td>
-                  <td >{exp.description}</td>
-                  <td >{exp.category}</td>
-                  <td >{exp.amount}</td>
-                  <td >{exp.date}</td>
+  if (search === '') {
+    // If the search input is empty or just spaces, show all expenses
+    filteredExpenses = expenses;
+  } else {
+    // Otherwise, filter the expenses by checking if the title or description matches the search term
+    filteredExpenses = expenses.filter((exp) => {
+      const lowerSearch = search.toLowerCase();
+      const matchesTitle = exp.title.toLowerCase().includes(lowerSearch);
+      const matchesDescription = exp.description.toLowerCase().includes(lowerSearch);
+      return matchesTitle || matchesDescription;
+    });
+  }
+
+  return (
+    <div className="container-fluid min-vh-100 bg-light py-4">
+      <div className="row">
+        {/* Sidebar */}
+        <div className="col-md-3 col-12 mb-4 px-4 border-end">
+          <h2>Add Expense</h2>
+          <form onSubmit={handleSubmit}>
+            <input className="form-control mb-2" name="title" value={form.title} onChange={handleChange} placeholder="Title" required />
+            <input className="form-control mb-2" name="description" value={form.description} onChange={handleChange} placeholder="Description" />
+            <input className="form-control mb-2" name="category" value={form.category} onChange={handleChange} placeholder="Category" />
+            <input className="form-control mb-2" type="number" name="amount" value={form.amount} onChange={handleChange} placeholder="Amount" required />
+            <input className="form-control mb-2" type="date" name="date" value={form.date} onChange={handleChange} required />
+            <button className="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+
+        {/* Main section */}
+        <div className="col-md-9 col-12 px-4">
+          <div className="d-flex justify-content-end mb-3">
+            <div className="input-group w-50">
+              <input
+                className="form-control"
+                placeholder="Search expenses..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <button className="btn btn-secondary">Search</button>
+            </div>
+          </div>
+
+          <h1 className="text-center text-primary">Expense Tracker</h1>
+          <div className="table-responsive">
+            <table className="table table-striped table-hover text-center">
+              <thead className="table-dark">
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Date</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filteredExpenses.map((exp, idx) => (
+                  <tr key={idx}>
+                    <td>{exp.title}</td>
+                    <td>{exp.description}</td>
+                    <td>{exp.category}</td>
+                    <td>{exp.amount}</td>
+                    <td>{exp.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default App;
-
-
