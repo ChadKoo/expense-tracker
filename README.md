@@ -44,7 +44,7 @@ src/
 ├── App.css      # Bootstrap CSS setup (optional)
 
 
-![App Screenshot](../image/screenshot.png)
+![App Screenshot](./image/screenshot.png)
 
 
 Users can fill out the form on the left to add a new expense. The added expense shows up instantly in the table. They can also filter through expenses using the search bar.
