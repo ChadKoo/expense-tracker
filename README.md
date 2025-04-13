@@ -16,7 +16,7 @@ A simple and responsive React app that allows users to track their expenses, add
 ## Built With
 
 - [React](https://reactjs.org/) – For building the user interface.
-- [Tailwind CSS](https://tailwindcss.com/) – For styling the components.
+- [Bootstrap CSS](https://https://getbootstrap.com//) – For styling the components.
 
 ---
 
@@ -26,28 +26,30 @@ A simple and responsive React app that allows users to track their expenses, add
 Follow these steps to run the project on your local machine:
 
 ### 1. Clone the repo
-git clone https://github.com/your-username/expense-tracker.git
+git clone https://github.com/ChadKoo/expense-tracker.git
 cd expense-tracker
 
 2. Install dependencies
 npm install
 
 3. Start the development server
-npm start
+npm run dev
 Your app should now be running at http://localhost:3000.
 
 📁 Project Structure
 
 src/
-├── App.js         # Main component with all the logic
+├── App.jsx         # Main component with all the logic
 ├── index.js       # Entry point
-├── index.css      # Tailwind CSS setup (optional)
-└── ...
-Demo
+├── App.css      # Bootstrap CSS setup (optional)
 
-Users can fill out the form on the left to add a new expense. The added expense shows up instantly in the table on the right. They can also filter through expenses using the search bar.
 
-Concepts Used
+![App Screenshot](../image/screenshot.png)
+
+
+Users can fill out the form on the left to add a new expense. The added expense shows up instantly in the table. They can also filter through expenses using the search bar.
+
+## Concepts Used
 useState for managing:
 
 The list of expenses
@@ -56,13 +58,11 @@ The form values
 
 The search input
 
-map() to render table rows dynamically
-
 filter() to search through expenses
 
 Controlled components (value and onChange in inputs)
 
-JSX & React event handling
+React event handling
 
 
 
