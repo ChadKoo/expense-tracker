@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+
 
 function App() {
   const [form, setForm] = useState({
@@ -10,7 +10,7 @@ function App() {
     amount: '',
     date: '',
   });
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState([]);//adds new expense added by user
   const [search, setSearch] = useState('');
 
   const handleChange = (e) => {
@@ -30,7 +30,7 @@ function App() {
     // If the search input is empty or just spaces, show all expenses
     filteredExpenses = expenses;
   } else {
-    // Otherwise, filter the expenses by checking if the title or description matches the search term
+    // Otherwise, filter the expenses by checking if the title or description matches the search input
     filteredExpenses = expenses.filter((exp) => {
       const lowerSearch = search.toLowerCase();
       const matchesTitle = exp.title.toLowerCase().includes(lowerSearch);
@@ -82,7 +82,7 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {filteredExpenses.map((exp, idx) => (
+                {filteredExpenses.map((exp) => (
                   <tr key={idx}>
                     <td>{exp.title}</td>
                     <td>{exp.description}</td>
