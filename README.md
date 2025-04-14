@@ -6,17 +6,17 @@ A simple and responsive React app that allows users to track their expenses, add
 
 ## Features
 
-- 📋 View a list of expenses in a table.
-- ➕ Add new expenses using a user-friendly form.
-- 🔍 Filter expenses using a search bar.
-- 🎨 Clean and minimal UI built with Tailwind CSS.
+- View a list of expenses in a table.
+- Add new expenses using a user-friendly form.
+- Filter expenses using a search bar.
+- Clean and minimal UI built with Bootstrap CSS.
 
 ---
 
 ## Built With
 
 - [React](https://reactjs.org/) – For building the user interface.
-- [Bootstrap CSS](https://https://getbootstrap.com//) – For styling the components.
+- [Bootstrap CSS](https://https://getbootstrap.com/) – For styling the components.
 
 ---
 
@@ -36,15 +36,10 @@ npm install
 npm run dev
 Your app should now be running at http://localhost:3000.
 
-📁 Project Structure
-
-src/
-├── App.jsx         # Main component with all the logic
-├── index.js       # Entry point
-├── App.css      # Bootstrap CSS setup (optional)
 
 
-![App Screenshot](./images/screenshot.png)
+
+![Screenshot](./images/screenshot.png)
 
 
 Users can fill out the form on the left to add a new expense. The added expense shows up instantly in the table. They can also filter through expenses using the search bar.
@@ -70,7 +65,7 @@ React event handling
 
 
 
-Author
-Made by Chadwick Koo
+## Author
+Made by Chadwick Koo'''
 
 
