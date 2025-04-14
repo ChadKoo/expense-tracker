@@ -39,7 +39,7 @@ Your app should now be running at http://localhost:3000.
 
 
 
-![Screenshot](./images/screenshot.png)
+![Screenshot](./src/assets/screenshot.png)
 
 
 Users can fill out the form on the left to add a new expense. The added expense shows up instantly in the table. They can also filter through expenses using the search bar.
