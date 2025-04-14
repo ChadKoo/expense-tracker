@@ -29,12 +29,10 @@ Follow these steps to run the project on your local machine:
 git clone https://github.com/ChadKoo/expense-tracker.git
 cd expense-tracker
 
-2. Install dependencies
-npm install
+2. Install dependencies using; npm install
 
-3. Start the development server
-npm run dev
-Your app should now be running at http://localhost:3000.
+3. Start the development server using npm run dev,
+
 
 
 
@@ -66,6 +64,6 @@ React event handling
 
 
 ## Author
-Made by Chadwick Koo'''
+Made by Chadwick Koo
 
 
